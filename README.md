@@ -1,2 +1,2 @@
-# Programacion
+#Rangos
 Repositorio-Programacion-ITCG
