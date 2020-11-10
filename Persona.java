@@ -10,7 +10,7 @@ package jardines;
  *
  * @author Hernandez
  */
-public abstract class Persona 
+public class Persona 
 {
     private String codigo;
     private String nombre;
@@ -20,6 +20,7 @@ public abstract class Persona
     private String email;
     
           
+    
     //getter and setter 
     public String getcodigo(){
       return codigo;

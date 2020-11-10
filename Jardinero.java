@@ -10,11 +10,10 @@ package jardines;
  *
  * @author Hernandez
  */
-public class Jardinero {
+public class Jardinero extends Empleado {
     float hrsExtras=0;
-    Empleado empleadoJ;
-    
-    //metodo constructor 
+        
+ /*   //metodo constructor 
     public void setHrsExtras(float hrsExtras) {
         this.hrsExtras = hrsExtras;
     }
@@ -22,7 +21,19 @@ public class Jardinero {
     public float getHrsExtras() {
         return hrsExtras;
     }
+    */
+//nota probar el float value linea 28 y 29
+     @Override
+    protected void SetExtension(Object infExt) {
+      hrsExtras =((Integer)infExt).floatValue();
+      hrsExtras =((Integer)infExt).floatValue();
+       // comisiones = ((float)infExt).
+    }
 
+    @Override
+    protected Object getExtension() {
+        return hrsExtras;
+    }
     
     
     

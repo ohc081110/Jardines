@@ -10,21 +10,30 @@ package jardines;
  *
  * @author Hernandez
  */
-public class Empleado extends Persona
+public abstract class Empleado extends Persona
 {
-     private String codigo;
+    /*private String codigo;
     private String nombre;
     private String domicilio;
     private String rfc;
     private String telefono;
     private String email;
     
- HashSet <AtnCte> empleadoAtcn = new HashSet <AtnCte> ();
- HashSet <Jardinero> empleadoJ = new HashSet <Jardinero> ();
+    */
+    protected abstract void SetExtension(Object infExt);
+    protected abstract Object getExtension();
+    
+    private int sueldo;
+   // protected abstract void SetExtension(Object infExt);
+   // protected abstract Object getExtension();
+    
+     
+ 
+
  
  
  //metodo constructor 
-    public Empleado( String codigo, String nombre, String domicilio, String rfc, String telefono, String email) {
+    /*public Empleado( String codigo, String nombre, String domicilio, String rfc, String telefono, String email) {
         super(codigo, nombre, domicilio, rfc, telefono, email);
         this.codigo = codigo;
         this.nombre = nombre;
@@ -32,16 +41,11 @@ public class Empleado extends Persona
         this.rfc = rfc;
         this.telefono = telefono;
         this.email = email;
-    }
+    }*/
 
      //alta
-    public void altaempleadoAtcn (AtnCte empleado)
-    {
-     empleadoAtcn.add(empleado);
-     
-     //empleado.setComisiones(comisiones);
-    }
-    
+   
+   /*
     
      //getter and setter 
     public String getcodigo(){
@@ -91,14 +95,8 @@ public class Empleado extends Persona
     public void setemail(String ema){
         email = ema;
     }
-    
-    public void setempleadoAtcn (AtnCte atencion)
-    {
-     empleadoAtcn.add(atencion);
-    }
-    
-    public void setempleadoJ (Jardinero jardinero)
-    {
-     empleadoJ.add(jardinero);
-    }
+    */
+
+   
+   
 }

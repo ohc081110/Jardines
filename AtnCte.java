@@ -12,22 +12,19 @@ import java.util.HashSet;
  *
  * @author Hernandez
  */
-public class AtnCte {
-    private String codigo;
-    private String nombre;
-    private String domicilio;
-    private String rfc;
-    private String telefono;
-    private String email;
+public class AtnCte extends Empleado {
+  
     private float comisiones=0;
-   // HashSet <Empleado> empleadoAtcn = new HashSet <Empleado> ();
-    Empleado empleadoA;
-    
-    
-     //metodo constructor 
 
-   
-    public float getComisiones() {
+     
+    @Override
+    protected void SetExtension(Object infExt) {
+      comisiones =((Integer)infExt).floatValue(); //probar
+       // comisiones = ((float)infExt).
+    }
+
+    @Override
+    protected Object getExtension() {
         return comisiones;
     }
 
@@ -35,3 +32,4 @@ public class AtnCte {
     
     
 }
+ 
