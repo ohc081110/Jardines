@@ -14,21 +14,15 @@ import java.util.HashSet;
  */
 public class AtnCte extends Empleado {
   
-    private float comisiones=0;
+    private float comisiones;
 
-     
-    @Override
-    protected void SetExtension(Object infExt) {
-      comisiones =((Integer)infExt).floatValue(); //probar
-       // comisiones = ((float)infExt).
+  public float getcomisiones(){
+     return comisiones;
     }
-
-    @Override
-    protected Object getExtension() {
-        return comisiones;
+    
+    public void setcomisiones(float com){
+        comisiones = com;
     }
-
-  
     
     
 }
