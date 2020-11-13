@@ -49,6 +49,10 @@ public class Jardin
         this.TipoJardin = TipoJardin;
     }
      
-     
+     @Override
+public String toString ()
+  {
+      return "Numero de Jardin: "+NoJardin+", Extensión de Jardin: "+extension+", Tiempo dedicado: "+ tiempodedicado+", Tipo de Jardin: "+ TipoJardin;
+  }
     
 }

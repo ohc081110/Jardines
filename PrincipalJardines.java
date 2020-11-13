@@ -16,13 +16,14 @@ public class PrincipalJardines
        //Persona p[]= new Persona [2];  //craea arrglo de objetos
        Scanner entrada = new Scanner (System.in);
        String busqueda = "", cod = "";
-       int opc = 0, opc1=0, opcjardin=0,  opcempleado1 = 0,opcempleado2 = 0, ctrl=0,ctrlj=0, busquedas=0,  ctrlcontratro=0, NoContrato=0;; 
-       //boolean bandera= false;
+       int opc = 0, opc1=0, opcjardin=0,  opcempleado1 = 0,opcempleado2 = 0, ctrl=0,ctrlj=0, busquedas=0,  ctrlcontratro=0, NoContrato=100;; 
+       Contrato contrato[]= new Contrato [20];  
+       Jardin j[] = new Jardin [20];
+//boolean bandera= false;
        //int i=0;
        boolean salir1 = false, salir2 = false;
        Persona personas[]= new Persona [20];  //craea arrglo de objetos
-       Jardin j[] = new Jardin [20];
-        while(!salir1)
+       while(!salir1)
        {
         System.out.println("---------Menu Empresa de Jardinería.. Cuando Calienta el Sol-------");
         System.out.println("1.- Empleado");
@@ -1165,15 +1166,16 @@ public class PrincipalJardines
                } else if (opc==3)
                  {
                  //contrato         
-                     Contrato contrato[]= new Contrato [20];
-                      Contrato tcontrato = new Contrato ();
+                    
+                     Contrato c;
                      int opccontrato=0;                     
-                     String nom = "", direccion = "Direccion Pendiente", duracion="Duracion Pendiente";
+                     String nom = "", direccion , duracion;
                      
                       System.out.println("---------Menu Contrato+-------");
                       System.out.println("1.- Ingresar nombre de cliente");
                       System.out.println("2.- Ingresar nombre de cliente y dirección");
                       System.out.println("3.- Ingresar nombre de cliente, dirección y duración"); 
+                      System.out.println("4.- Mostrar contratos"); 
                        
                       System.out.println("---------+------------------------+-------------");
          
@@ -1185,64 +1187,54 @@ public class PrincipalJardines
                  {       
                      System.out.println(ctrlcontratro);
                      System.out.println("Ingresa el nombre del cliente");
-                     nom = entrada.nextLine();
-                     tcontrato.setNoContrato(NoContrato);
-                     tcontrato.setNombreCliente(nom);
-                     tcontrato.setDuracion(duracion);
-                     tcontrato.setDireccion(direccion);
-                     contrato[ctrlcontratro]=tcontrato; //
-                     
-                     System.out.println(contrato[ctrlcontratro].getNoContrato());
-                     System.out.println(contrato[ctrlcontratro].getNombreCliente());
-                     System.out.println(contrato[ctrlcontratro].getDuracion());
-                     System.out.println(contrato[ctrlcontratro].getDireccion());
+                     nom = entrada.nextLine();                                       
+                     c = new Contrato(NoContrato, nom);
+                     contrato[ctrlcontratro]=c;
                      
                      ctrlcontratro++;
                      NoContrato++;
-                     System.out.println(ctrlcontratro);
-                                 
+                                                   
                  } else if (opccontrato==2)
                  {
-                      System.out.println(ctrlcontratro);
-                   System.out.println("Ingresa el nombre del cliente");
-                   nom = entrada.nextLine();
-                   System.out.println("Ingresa la dirección del cliente");
-                   direccion = entrada.nextLine();
-                   tcontrato.setNoContrato(NoContrato);
-                   tcontrato.setNombreCliente(nom);
-                   tcontrato.setDuracion(duracion);
-                   tcontrato.setDireccion(direccion);
-                   contrato[ctrlcontratro]=tcontrato; //
-                   System.out.println("Contrato almacenado con exito");
+                     
+                     System.out.println(ctrlcontratro);
+                     System.out.println("Ingresa el nombre del cliente");
+                     nom = entrada.nextLine(); 
+                     System.out.println("Ingresa la dirección del cliente");
+                     direccion = entrada.nextLine();
+                     c = new Contrato(NoContrato, nom, direccion );
+                     contrato[ctrlcontratro]=c;
                      ctrlcontratro++;
                      NoContrato++;
-                    System.out.println(ctrlcontratro);
+                     
+                     System.out.println(ctrlcontratro);
+                  
                   }else if (opccontrato==3)
                   {
-                  System.out.println(ctrlcontratro);
-                   System.out.println("Ingresa el nombre del cliente");
-                   nom = entrada.nextLine();
-                   System.out.println("Ingresa la dirección del cliente");
-                   direccion = entrada.nextLine();
-                   System.out.println("Ingresa la duración del contrato");
-                   duracion = entrada.nextLine();
-                   
-                   tcontrato.setNoContrato(NoContrato);
-                   tcontrato.setNombreCliente(nom);
-                   tcontrato.setDuracion(duracion);
-                   tcontrato.setDireccion(direccion);
-                   contrato[ctrlcontratro]=tcontrato; //
-                   System.out.println("Contrato almacenado con exito");
+                     System.out.println(ctrlcontratro);
+                     System.out.println("Ingresa el nombre del cliente");
+                     nom = entrada.nextLine(); 
+                     System.out.println("Ingresa la dirección del cliente");
+                     direccion = entrada.nextLine();
+                      System.out.println("Ingresa la duración del contrato");
+                      duracion = entrada.nextLine();
+                     c = new Contrato(NoContrato, nom,duracion, direccion );
+                     contrato[ctrlcontratro]=c;
                      ctrlcontratro++;
                      NoContrato++;
-                    System.out.println(ctrlcontratro);
-                  
-                  }
-                 }
-                  else if (opc==4)
+                                        
+                  } else if (opccontrato==4)
+                         {
+                            for (int i = 0; i < ctrlcontratro; i ++)
+                           {
+                             System.out.println(contrato[i]);                          
+                           }
+                         }
+               
+                 } else if (opc==4)
                  {
                  //jardin
-                     opcjardin=0;
+                    opcjardin=0;
                     System.out.println("Menu de Jardin");
                     System.out.println("-----------------------------------------------------------------");
                     System.out.println("Selecciona una opción para Jardin");
@@ -1250,7 +1242,7 @@ public class PrincipalJardines
                     System.out.println("2.- Consultar");
                     System.out.println("3.- Busqueda"); 
                     System.out.println("4.- Modificar"); 
-                     System.out.println("5.- Eliminar");
+                    System.out.println("5.- Eliminar");
                     System.out.println("6.- Salir"); 
                     System.out.println("-----------------------------------------------------------------");
                     System.out.print("Selecciona una opcion del menu Jardin...");        
@@ -1261,8 +1253,7 @@ public class PrincipalJardines
                            {
                              case 1:
                                 { 
-                                 //Jardin j[] = new Jardin [20];
-                                    Jardin jardin = new Jardin (); //arreglo tipo jardinero
+                                   Jardin jardin = new Jardin (); //arreglo tipo jardin
                                  
                                    int NoJardin;
                                    int extension;
@@ -1280,12 +1271,12 @@ public class PrincipalJardines
                         
                                  System.out.print("Tiempo dedicado: ");    
                                  tiempodedicado = entrada.nextFloat();
-                                jardin.setTiempodedicado(tiempodedicado);
-                        entrada.nextLine();
+                                 jardin.setTiempodedicado(tiempodedicado);
+                                entrada.nextLine();
                                  System.out.print("Tipo jardin: ");    
                                  TipoJardin = entrada.nextLine();  
                                  jardin.setTipoJardin(TipoJardin);
-                        entrada.nextLine();
+                                 entrada.nextLine();
                                  j[ctrlj] = jardin;
                                  ctrlj++;
                                  System.out.println("Jardin agregado con exito!");
@@ -1296,26 +1287,209 @@ public class PrincipalJardines
                                 {                                 
                                  for (int i = 0; i < ctrlj; i ++)
                                   {
-                                    if (personas[i] instanceof Jardinero)
-                                     {
-                                       Jardin j2 = new Jardin();
-                                       j2 = (Jardin)j[i];
-                                       System.out.println("////////////////////////////");
-                                       System.out.println("----Jardin----");                                  
-                                       System.out.println("Codigo: " + j2.getNoJardin());
-                                       System.out.println("Nombre: " + j2.getTipoJardin());
-                                       System.out.println("Domicilio: " + j2.getExtension());
-                                       System.out.println("RFC: " + j2.getTiempodedicado());
-                                       System.out.println("////////////////////////////");
-                                    }
-                                 }
+                                    System.out.println(j[i]);                          
+                                  }
                            
-                              }  //llave case mostrar empleados jardinero
-
-                           break;
+                                }  //llave case mostrar jardines
+                                 break;
                                   
-                    
-                     }
+                          
+                                  case 3: //busqueda
+                                    {
+                                      int nojardin = 0;
+                                      System.out.print("Ingresa codigo del Jardin a buscar.. ");
+                                      nojardin=entrada.nextInt();
+                                      boolean bandera= false;
+                                      int i=0;
+                            
+                                            while (!bandera)
+                                            {
+                                               if (j[i].getNoJardin()==nojardin)
+                                         
+                                              {
+                                               bandera=true;
+                                               System.out.println("////////////////////////////");
+                                               System.out.println("----Jardin----");                                  
+                                               System.out.println("Numero de Jardin: " + j[i].getNoJardin());
+                                               System.out.println("Extension de Jardin: " + j[i].getExtension());
+                                               System.out.println("Tiempo dedicado: " + j[i].getTiempodedicado());
+                                               System.out.println("RFC: " + j[i].getTipoJardin());
+                                              }  
+                                                i=i+1;
+                                            }
+                                            if (bandera==false && i==ctrlj)
+                                                   {
+                                                     System.out.println("********************************");
+                                                     System.out.println("Jardin no encontrado!"); 
+                                                     System.out.println("*********************************"); 
+                                                     bandera=true;
+                                           
+                                                    }
+                                                                                  
+                                    } //llave case busqueda
+                                   break;
+                                      
+                                       case 4: //modificar
+                                     {
+                                           Jardin jardin = new Jardin (); //arreglo tipo jardin 
+                                           int NoJardin;
+                                            int extension;
+                                            float tiempodedicado;
+                                            String TipoJardin, d ="";
+                                      int nojardin = 0;
+                                      System.out.print("Ingresa codigo del Jardin a modificar.. ");
+                                      nojardin=entrada.nextInt();
+                                      boolean bandera= false;
+                                      int i=0;
+                            
+                                            while (!bandera)
+                                            {
+                                                 if (bandera==false && i==ctrlj)
+                                                   {
+                                                     System.out.println("Jardin no encontrado!"); 
+                                                     System.out.println("*********************************"); 
+                                                     bandera=true;
+                                           
+                                                    }
+                                                 
+                                               if (j[i].getNoJardin()==nojardin)
+                                         
+                                              {
+                                               bandera=true;
+                                               System.out.println("////////////////////////////");
+                                               System.out.println("----Jardin----");                                  
+                                               System.out.println("Numero de Jardin: " + j[i].getNoJardin());
+                                               System.out.println("Extension de Jardin: " + j[i].getExtension());
+                                               System.out.println("Tiempo dedicado: " + j[i].getTiempodedicado());
+                                               System.out.println("Tipo de jardin: " + j[i].getTipoJardin());
+                                              entrada.nextLine();
+                                               System.out.print("Desea modificar datos del Jardin.. S/n .. "); 
+                                               d=entrada.nextLine();
+                                                 
+                                                     if (d.equals("Si")||(d.equals("si")||(d.equals("S")||d.equals("s"))))
+                                                       {                                                                                                          
+                                                        System.out.println("Ingresa los nuevos datos del jardin: ");
+    		        
+                                               
+                                                           System.out.println("////////////////////////////");
+                                                           System.out.println("----Jardin a modificar----");                                  
+                                                           NoJardin = j[i].getNoJardin();
+                                                           jardin.setNoJardin(NoJardin);
+                                 
+                                                            System.out.print("Extension de jardin: ");    
+                                                            extension = entrada.nextInt();  
+                                                            jardin.setExtension(extension);
+                        
+                                                            System.out.print("Tiempo dedicado: ");    
+                                                            tiempodedicado = entrada.nextFloat();
+                                                            jardin.setTiempodedicado(tiempodedicado);
+                                                            entrada.nextLine();
+                                                            System.out.print("Tipo jardin: ");    
+                                                            TipoJardin = entrada.nextLine();  
+                                                            jardin.setTipoJardin(TipoJardin);
+                                                            entrada.nextLine();
+                                                            j[i] = jardin;
+                                                            System.out.println("Jardin modificado con exito!");
+                                                       }else  if (d.equals("No")||(d.equals("no")||(d.equals("N")||d.equals("n"))))
+                                                            {
+                                                             System.out.println("No modificar Jardin!");
+                                                             bandera=true;
+                                                            }
+                                              
+                                              }  
+                                                i=i+1;
+                                            }
+                                           
+                                     } // llave de case modificar
+                                     break;
+                                           
+                                      case 5: //elimiar
+                                     {
+                                          Jardin jardin = new Jardin (); //arreglo tipo jardin 
+                                           int NoJardin;
+                                            int extension;
+                                            float tiempodedicado;
+                                            String TipoJardin, d ="";
+                                      int nojardin = 0;
+                                      System.out.print("Ingresa codigo del Jardin a eliminar.. ");
+                                      nojardin=entrada.nextInt();
+                                      boolean bandera= false;
+                                      int i=0;
+                            
+                                            while (!bandera)
+                                            {
+                                                 if (bandera==false && i==ctrlj)
+                                                   {
+                                                     System.out.println("********************************");
+                                                     System.out.println("Jardin no encontrado!"); 
+                                                     System.out.println("*********************************"); 
+                                                     bandera=true;
+                                           
+                                                    }
+                                                 
+                                               if (j[i].getNoJardin()==nojardin)
+                                         
+                                              {
+                                               bandera=true;
+                                               System.out.println("////////////////////////////");
+                                               System.out.println("----Jardin----");                                  
+                                               System.out.println("Numero de Jardin: " + j[i].getNoJardin());
+                                               System.out.println("Extension de Jardin: " + j[i].getExtension());
+                                               System.out.println("Tiempo dedicado: " + j[i].getTiempodedicado());
+                                               System.out.println("Tipo de jardin: " + j[i].getTipoJardin());
+                                              entrada.nextLine();
+                                               System.out.print("Desea eliminar datos del Jardin.. S/n .. "); 
+                                               d=entrada.nextLine();
+                                                 
+                                                     if (d.equals("Si")||(d.equals("si")||(d.equals("S")||d.equals("s"))))
+                                                       {                                                                                                          
+                                                        //System.out.println("Ingresa los nuevos datos del jardin: ");
+    		        
+                                               
+                                                           System.out.println("////////////////////////////");
+                                                          // System.out.println("----Jardin a eliminar----");                                  
+                                                           NoJardin = 0;
+                                                           jardin.setNoJardin(NoJardin);
+                                 
+                                                            //System.out.print("Extension de jardin: ");    
+                                                            extension = 0;  
+                                                            jardin.setExtension(extension);
+                        
+                                                           // System.out.print("Tiempo dedicado: ");    
+                                                            tiempodedicado = 0;
+                                                            jardin.setTiempodedicado(tiempodedicado);
+                                                            //entrada.nextLine();
+                                                            //System.out.print("Tipo jardin: ");    
+                                                            TipoJardin = "";  
+                                                            jardin.setTipoJardin(TipoJardin);
+                                                           // entrada.nextLine();
+                                                            j[i] = jardin;
+                                                            System.out.println("Jardin eliminado con exito!");
+                                                       }else  if (d.equals("No")||(d.equals("no")||(d.equals("N")||d.equals("n"))))
+                                                            {
+                                                             System.out.println("No eliminar Jardin!");
+                                                             bandera=true;
+                                                            }
+                                              
+                                              }  
+                                                i=i+1;
+                                            }
+                                          
+                                          
+                     
+                                     }//llave de case eliminar
+                                     break;
+                                               
+                                      case 6: //regresar menu principal
+                                     {
+                     
+                                     }
+                                     break;
+                                        
+                           }//llave sw
+                           
+                         
+                     
                  
                  } else if (opc==5)
                  {
