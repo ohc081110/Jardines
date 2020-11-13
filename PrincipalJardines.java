@@ -1,11 +1,8 @@
 //Proyecto Unidad III Jardines
 //Omar Hernandez Calvario
 package jardines;
-//import java.util.HashSet;
-//import com.sun.org.apache.bcel.internal.util.Objects;
 import java.util.InputMismatchException;
 import java.util.Scanner;
-//import java.util.Set;
 
 public class PrincipalJardines 
 {
@@ -13,14 +10,12 @@ public class PrincipalJardines
    
     public static void main(String[] args) 
     {
-       //Persona p[]= new Persona [2];  //craea arrglo de objetos
        Scanner entrada = new Scanner (System.in);
        String busqueda = "", cod = "";
        int opc = 0, opc1=0, opcjardin=0,  opcempleado1 = 0,opcempleado2 = 0, ctrl=0,ctrlj=0, busquedas=0,  ctrlcontratro=0, NoContrato=100;; 
        Contrato contrato[]= new Contrato [20];  
        Jardin j[] = new Jardin [20];
-//boolean bandera= false;
-       //int i=0;
+
        boolean salir1 = false, salir2 = false;
        Persona personas[]= new Persona [20];  //craea arrglo de objetos
        while(!salir1)
@@ -31,9 +26,9 @@ public class PrincipalJardines
         System.out.println("3.- Contrato");
         System.out.println("4.- Jardin");
         System.out.println("5.- Salir"); 
+           System.out.println("------------------------------------------------------------------");
         
-        
-       //  try {
+         try {
                opc = 0;
                opcempleado1=0;
                 opcempleado2=0;
@@ -55,8 +50,8 @@ public class PrincipalJardines
                     
                     if (opcempleado1 == 1 )
                     {
-                      //  while(!salir2)
-                       // {
+                        while(!salir2)
+                        {
                          //opcempleado1 = 0;
                          System.out.println("Menu de Empleado Jardinero");
                          System.out.println("-----------------------------------------------------------------");
@@ -439,12 +434,12 @@ public class PrincipalJardines
                                   
                              
                            }//llave del sw
-                   // } //llave del while
+                   } //llave del while menu 
                        
                                } else if (opcempleado1 == 2 ) //llave del if tipo empleado atencion a cliente
                                {
-                                   // while(!salir2)
-                        //{
+                          while(!salir2)
+                        {
                                  System.out.println("Menu de Empleado Atención al cliente");
                                  System.out.println("-----------------------------------------------------------------");
                                  System.out.println("Selecciona una opción para el empleado Atención al cliente");
@@ -454,7 +449,7 @@ public class PrincipalJardines
                                  System.out.println("4.- Modificar"); 
                                  System.out.println("5.- Eliminar");
                                  System.out.println("6.- Calcular salario"); 
-                                 System.out.println("6.- Regresar menu principal"); 
+                                 System.out.println("7.- Regresar menu principal"); 
                                  System.out.println("-----------------------------------------------------------------");
                                  System.out.print("Selecciona una opcion del menu Empleado Atención al cliente...");        
                                  opcempleado2=entrada.nextInt();
@@ -803,18 +798,10 @@ public class PrincipalJardines
                                                                  }
                                                                                   
                                                             }//llave while
-                                                        // }
-                                                    
-                                        
-                                     
-                                                    }//llave case salario
+                                                       }//llave case salario
                            
                                                      break;
-                                                       
-                                                       
-                                                  
-                                                       
-                                                        case 7: 
+                                                   case 7: 
                                                    System.out.println("Regresar al Menu principal!!");
                                                    salir2=true;
                                                    opcempleado1 = 0;
@@ -822,15 +809,14 @@ public class PrincipalJardines
                                                    break;
                                ////////////////////////////////////////////////////////////////////
                              
-                             
-                             
                                }
-                             } 
-                     // }//llave del lwhile
+                             } //llave del lwhile atencion al cliente
+                } //llave del if atencion al cliente
+                     
                 }else if (opc==2 )
                 { 
-                 //   while(!salir2)
-              //{
+                  while(!salir2)
+              {
                      System.out.println("Menu de Cliente");
                     System.out.println("-----------------------------------------------------------------");
                     System.out.println("Selecciona una opción para Cliente");
@@ -1158,10 +1144,9 @@ public class PrincipalJardines
                            System.out.println("Regresar al Menu principal!!");
                            salir2=true;
                            opc=0; opc1=0;
-                           //System.exit(0);
                            break;
                      } //llave del sw
-              //} //llave de while de menu cliente
+              } //llave del while de bandera de menu cliente
                 
                } else if (opc==3)
                  {
@@ -1170,12 +1155,14 @@ public class PrincipalJardines
                      Contrato c;
                      int opccontrato=0;                     
                      String nom = "", direccion , duracion;
-                     
+                     while (!salir2)
+                     {
                       System.out.println("---------Menu Contrato+-------");
                       System.out.println("1.- Ingresar nombre de cliente");
                       System.out.println("2.- Ingresar nombre de cliente y dirección");
                       System.out.println("3.- Ingresar nombre de cliente, dirección y duración"); 
                       System.out.println("4.- Mostrar contratos"); 
+                      System.out.println("5.- Regresar al menu principal"); 
                        
                       System.out.println("---------+------------------------+-------------");
          
@@ -1229,10 +1216,16 @@ public class PrincipalJardines
                            {
                              System.out.println(contrato[i]);                          
                            }
+                         }else if (opccontrato==5)
+                         {
+                            System.out.println("Regresar al Menu principal!!");
+                            salir2 = true;
                          }
-               
+                 }////llave del while de bandera de menu contrato
                  } else if (opc==4)
                  {
+                     while (!salir2)
+                     {
                  //jardin
                     opcjardin=0;
                     System.out.println("Menu de Jardin");
@@ -1443,26 +1436,18 @@ public class PrincipalJardines
                                                  
                                                      if (d.equals("Si")||(d.equals("si")||(d.equals("S")||d.equals("s"))))
                                                        {                                                                                                          
-                                                        //System.out.println("Ingresa los nuevos datos del jardin: ");
-    		        
-                                               
+                                                       
                                                            System.out.println("////////////////////////////");
-                                                          // System.out.println("----Jardin a eliminar----");                                  
                                                            NoJardin = 0;
                                                            jardin.setNoJardin(NoJardin);
-                                 
-                                                            //System.out.print("Extension de jardin: ");    
                                                             extension = 0;  
                                                             jardin.setExtension(extension);
-                        
-                                                           // System.out.print("Tiempo dedicado: ");    
                                                             tiempodedicado = 0;
                                                             jardin.setTiempodedicado(tiempodedicado);
-                                                            //entrada.nextLine();
-                                                            //System.out.print("Tipo jardin: ");    
+                                                        
                                                             TipoJardin = "";  
                                                             jardin.setTipoJardin(TipoJardin);
-                                                           // entrada.nextLine();
+                                                           
                                                             j[i] = jardin;
                                                             System.out.println("Jardin eliminado con exito!");
                                                        }else  if (d.equals("No")||(d.equals("no")||(d.equals("N")||d.equals("n"))))
@@ -1482,6 +1467,8 @@ public class PrincipalJardines
                                                
                                       case 6: //regresar menu principal
                                      {
+                                      System.out.println("Regresar al Menu principal!!");
+                                      salir2 = true;
                      
                                      }
                                      break;
@@ -1489,19 +1476,22 @@ public class PrincipalJardines
                            }//llave sw
                            
                          
-                     
+                     } //llave del while de bandera de menu jardin
                  
                  } else if (opc==5)
                  {
                    System.out.println("Salir del Sistema...Gracias por participar!!");
                    salir1=true;
-                   //salir2=true;
                    System.exit(0);
                  }
     
-
+  } catch (InputMismatchException e) {
+                System.out.println("Ingresa el dato de manera correcta");
+                entrada.next();
+            } 
 
        } //llave while
+        
     } // lave main
 } //clase principal
  
