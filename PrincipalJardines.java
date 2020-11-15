@@ -20,7 +20,7 @@ public class PrincipalJardines
        Persona personas[]= new Persona [20];  //craea arrglo de objetos
        while(!salir1)
        {
-        System.out.println("---------Menu Empresa de Jardinería.. Cuando Calienta el Sol-------");
+        System.out.println("---------Menu Principal Empresa de Jardinería.. Cuando Calienta el Sol-------");
         System.out.println("1.- Empleado");
         System.out.println("2.- Cliente");
         System.out.println("3.- Contrato");
@@ -461,7 +461,7 @@ public class PrincipalJardines
                                 {  //agregar
                                  AtnCte atc = new AtnCte (); //arreglo tipo atc
                                  String codigo, nombre, domicilio, rfc, tel, email;
-                                 float comisiones=0;
+                                 int clientescaptados=0;
                                  System.out.println("Ingresa datos del empleado: ");
     		                 System.out.print("Codigo: ");    
                                  codigo = entrada.nextLine();
@@ -487,9 +487,9 @@ public class PrincipalJardines
                                  email = entrada.nextLine();  
                                  atc.setemail(email);
                                  
-                                 System.out.print("Comisiones: ");    
-                                 comisiones = entrada.nextFloat();
-                                 atc.setcomisiones(comisiones);
+                                 System.out.print("Cantidad de clientes captados: ");    
+                                 clientescaptados = entrada.nextInt();
+                                 atc.setCcaptados(clientescaptados);
                                  //falta atributo de jardinero
                                  personas[ctrl] = atc;
                                  ctrl++;
@@ -513,7 +513,7 @@ public class PrincipalJardines
                                        System.out.println("RFC: " + atc.getrfc());
                                        System.out.println("Telefono: " + atc.gettelefono());
                                        System.out.println("Email: " + atc.getemail());
-                                       System.out.println("Comisiones: " + atc.getcomisiones());
+                                       System.out.println("Cantidad de clientes captados: " + atc.getCcaptados());
                                        System.out.println("////////////////////////////");
                                     }
                                  }
@@ -546,7 +546,7 @@ public class PrincipalJardines
                                                System.out.println("RFC: " + atc.getrfc());
                                                System.out.println("Telefono: " + atc.gettelefono());
                                                System.out.println("Email: " + atc.getemail());
-                                               System.out.println("Comisiones: " + atc.getcomisiones());
+                                               System.out.println("Cantidad de clientes captados: " + atc.getCcaptados());
                                              }
                                              i=i+1;
                                            }
@@ -575,7 +575,7 @@ public class PrincipalJardines
                                            int i=0, actualizar=0;
                                            String d ="";
                                            String codigo, nombre, domicilio, rfc, tel, email;
-                                           float comisiones = 0;
+                                           int clientescaptados = 0;
                                            while (!bandera)
                                             {
                                              if (bandera==false && i==ctrl)
@@ -602,7 +602,7 @@ public class PrincipalJardines
                                                      System.out.println("RFC: " + atc.getrfc());
                                                      System.out.println("Telefono: " + atc.gettelefono());
                                                      System.out.println("Email: " + atc.getemail());
-                                                     System.out.println("Comisiones: " + atc.getcomisiones());
+                                                     System.out.println("Cantidad de Clientes captados: " + atc.getCcaptados());
                                                
                                                      System.out.print("Desea modificar datos del empleado "+atc.getnombre()+" S/n .. "); 
                                                      d=entrada.nextLine();
@@ -636,8 +636,8 @@ public class PrincipalJardines
                                                                  atc.setemail(email);
                         
                                                                  System.out.print("Comisiones: ");    
-                                                                 comisiones = entrada.nextFloat();  
-                                                                 atc.setcomisiones(comisiones);
+                                                                 clientescaptados = entrada.nextInt();  
+                                                                 atc.setCcaptados(clientescaptados);
                         
                                                                  personas[i] = atc;
                         
@@ -669,7 +669,7 @@ public class PrincipalJardines
                                 int i=0, actualizar=0;
                                 String d ="";
                                 String codigo, nombre, domicilio, rfc, tel, email;
-                                float comisiones = 0;
+                                int clientescaptados = 0;
                                    while (!bandera)
                                     {
                                           if (bandera==false && i==ctrl)
@@ -696,7 +696,7 @@ public class PrincipalJardines
                                                System.out.println("RFC: " + atc.getrfc());
                                                System.out.println("Telefono: " + atc.gettelefono());
                                                System.out.println("Email: " + atc.getemail());
-                                               System.out.println("Hrs extras: " + atc.getcomisiones());
+                                               System.out.println("Cantidad de clientes captados: " + atc.getCcaptados());
                                                
                                                System.out.print("Desea eliminar al Cliente "+atc.getnombre()+" S/n .. "); 
                                                d=entrada.nextLine();
@@ -730,9 +730,9 @@ public class PrincipalJardines
                                                                  email = "";  
                                                                  atc.setemail(email);
                         
-                                                                 System.out.print("Horas extras: ");    
-                                                                 comisiones = 0;  
-                                                                 atc.setcomisiones(comisiones);
+                                                                 System.out.print("Cantidad de clientes captados: ");    
+                                                                 clientescaptados = 0;  
+                                                                 atc.setCcaptados(clientescaptados);
                         
                                                                  personas[i] = atc;
                         
@@ -757,12 +757,9 @@ public class PrincipalJardines
                            
                                                    case 6: 
                                                    {                                                
-                                                         float sueldo = 5000;
-                                                         //float pagoxhr = 100;
-                                                         float salario = 0;
-                                                         float comisiones = 0;
+                                                         
                                                           boolean bandera= false;
-                                                          int i=0;
+                                                          int i=0, ccaptados = 0;
                                                           System.out.print("Ingresa codigo del Empleado/Atención al cliente calcular salario.. ");
                                                           cod = entrada.nextLine();
                             
@@ -780,9 +777,11 @@ public class PrincipalJardines
                                                                 System.out.println("----Empleado Atención al cliente Salario individual----");                                  
                                                                 System.out.println("Codigo: " + cte.getcodigo());
                                                                 System.out.println("Nombre: " + cte.getnombre());
-                                                                comisiones= cte.getcomisiones();
-                                                                salario = comisiones+sueldo;
-                                                                System.out.println("El salario del empleado es $"+ salario+ " semanales.");
+                                                                System.out.println("Cantidad de clientes captados: "+cte.getCcaptados());
+                                                                ccaptados = cte.getCcaptados();
+                                                                AtnCte atencionE = new AtnCte ();
+                                                                atencionE.AtnCte(ccaptados);
+                                                           
                                                                }
                                                                    i=i+1;
                                                             }
@@ -1494,4 +1493,3 @@ public class PrincipalJardines
         
     } // lave main
 } //clase principal
- 

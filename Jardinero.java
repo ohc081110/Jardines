@@ -21,7 +21,12 @@ public class Jardinero extends Empleado {
     public void sethrsExtras(float he){
         hrsExtras = he;
     }
+
+  
     
     
     
 }
+    
+  
+       

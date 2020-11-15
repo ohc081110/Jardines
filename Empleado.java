@@ -1,11 +1,7 @@
 package jardines;
 
-import java.util.HashSet;
-
 /*
-
 package jardines;
-
 /**
  *
  * @author Hernandez
@@ -13,10 +9,19 @@ package jardines;
 public class Empleado extends Persona
 {
     
-   // protected abstract void SetExtension(Object infExt);
-  //  protected abstract Object getExtension();
-    
-  //  private int sueldo;
-  
+/*  float sueldo = 5000;
+  float salario = 0;
+  float comisiones = 50; 
+  int clientescaptados =0;
+
+    public Empleado(int Noclientes) 
+    {
+         clientescaptados = Noclientes;        
+        salario=clientescaptados*comisiones+sueldo;
+        
+    }
+
+  */
+ 
    
 }
