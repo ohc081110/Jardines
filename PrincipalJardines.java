@@ -374,9 +374,9 @@ public class PrincipalJardines
                                                    case 6:  //salario
                                                     {
                                                                                                               
-                                                         float sueldo = 5000;
-                                                         float pagoxhr = 100;
-                                                         float salario = 0;
+                                                         //float sueldo = 5000;
+                                                         //float pagoxhr = 100;
+                                                         //float salario = 0;
                                                          float hrs = 0;
                                                           boolean bandera= false;
                                                           int i=0;
@@ -397,9 +397,9 @@ public class PrincipalJardines
                                                                 System.out.println("----Empleado Jardinero Salario individual----");                                  
                                                                 System.out.println("Codigo: " + jar.getcodigo());
                                                                 System.out.println("Nombre: " + jar.getnombre());
+                                                                System.out.println("Hrs extras trabajadas: " + jar.gethrsExtras());
                                                                 hrs = jar.gethrsExtras();
-                                                                salario = (hrs*pagoxhr)+sueldo;
-                                                                System.out.println("El salario del empleado es $"+ salario+ " semanales.");
+                                                                jar.Jardinero(hrs);
                                                                }
                                                                    i=i+1;
                                                             }
@@ -779,8 +779,7 @@ public class PrincipalJardines
                                                                 System.out.println("Nombre: " + cte.getnombre());
                                                                 System.out.println("Cantidad de clientes captados: "+cte.getCcaptados());
                                                                 ccaptados = cte.getCcaptados();
-                                                                AtnCte atencionE = new AtnCte ();
-                                                                atencionE.AtnCte(ccaptados);
+                                                                cte.AtnCte(ccaptados);
                                                            
                                                                }
                                                                    i=i+1;
@@ -790,7 +789,7 @@ public class PrincipalJardines
                                                               if (bandera==false && i==ctrl)
                                                                   {
                                                                    System.out.println("********************************");
-                                                                   System.out.println("Empleado tipo Jardinero no encontrado!"); 
+                                                                   System.out.println("Empleado no encontrado!"); 
                                                                    System.out.println("*********************************"); 
                                                                    bandera=true;
                                            

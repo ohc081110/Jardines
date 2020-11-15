@@ -22,6 +22,20 @@ public class Jardinero extends Empleado {
         hrsExtras = he;
     }
 
+    public void Jardinero(float hrsExtras)
+    {
+         float sueldo = 5000;
+        float salario = 0;
+        float pagoxhr = 100; 
+        this.hrsExtras = hrsExtras;
+        
+        salario=(pagoxhr*hrsExtras)+sueldo;
+        System.out.println("Salario mensual ..$"+salario);
+        System.out.println("-------------------------------");
+        
+        
+    }
+
   
     
     

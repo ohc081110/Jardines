@@ -7,8 +7,6 @@
 
 package jardines;
 
-import java.util.HashSet;
-
 /**
  *
  * @author Hernandez
@@ -33,8 +31,8 @@ public class AtnCte extends Empleado {
         this.ccaptados = ccaptados;
         salario=(ccaptados*comisiones)+sueldo;
         System.out.println("Salario mensual ..$"+salario);
-        //return salario;
-    }
+        System.out.println("--------------------------");
+      }
     
     
 }
